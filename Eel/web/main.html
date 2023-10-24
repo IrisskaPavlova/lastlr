@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Гороскоп</title>
+
+    <script src="eel.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <input id="location" type="text" placeholder="Введи день рождения ..." required="" value="18">
+    <input id="location2" type="text" placeholder="Введи месяц рождения ..." required="" value="05">
+    <button id="show">Узнать гороскоп</button>
+    
+    <div id="info"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/eel.js">
+
+        async function display_horoscope() {
+            let date = document.getElementById('location').value;
+            let month = document.getElementById('location2').value;
+            let res = await eel.zz(date,month);
+            document.getElementById('info').innerHTML = res;
+        }
+
+        jQuery('#show').on('click', function() {
+            display_horoscope();
+        });
+    </script>
+</body>
+</html>
